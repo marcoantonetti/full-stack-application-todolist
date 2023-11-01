@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dote": "^1.1.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.3",
+    "pg-promise": "^11.5.4",
+    "uuid": "^9.0.1"
+  },
+  "type": "module",
+  "name": "server",
+  "version": "1.0.0",
+  "main": "server.cjs",
+  "scripts": {
+    "start": "nodemon server.cjs",
+    "deploy": "node server.cjs",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

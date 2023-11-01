@@ -1,0 +1,25 @@
+{
+  "name": "ensolvers-application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "if-env TYPE=server && (cd server && npm install) || (cd ensolvers TODO list && npm install)",
+    "server": "node ./server/server.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ensolvers-github-challenges/Antonetti-f24aa2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ensolvers-github-challenges/Antonetti-f24aa2/issues"
+  },
+  "homepage": "https://github.com/ensolvers-github-challenges/Antonetti-f24aa2#readme",
+  "dependencies": {
+    "if-env": "^1.0.4"
+  }
+}
