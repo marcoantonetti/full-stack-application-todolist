@@ -1,0 +1,30 @@
+Instructions to run the application
+
+Start terminal in client folder
+
+--> npm run dev
+
+It will run the react app
+
+-----------------------------------
+Start terminal in server folder
+
+--> npm Start
+
+It will listen in port 9000 on localhost
+http://localhost:9000
+
+---------------------------------
+DATABASE
+
+I used postgreSQL and created my database in pgAdmin4
+The database.sql file has the SQL query for the database and table 
+The db.cjs file has the connection to the database
+
+Just in case --> how to create a database and table in pgadmin https://www.youtube.com/watch?v=oWsAYx2R9RI
+
+Also I uploaded a video of the proyect here --> https://youtu.be/endAcVCxilE
+
+------------------------------------
+
+Thank you for your consideration

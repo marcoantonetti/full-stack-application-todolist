@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "if-env TYPE=server && (cd server && npm install) || (cd ensolvers TODO list && npm install)",
-    "server": "node ./server/server.cjs"
+    "build": " (cd server && npm start) && (cd client && npm run dev)",
+    "server": "node ./server/server.cjs",
+    "client": "cd client && npm start"
   },
   "repository": {
     "type": "git",
@@ -15,11 +16,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "if-env": "^1.0.4"
+  },
   "bugs": {
     "url": "https://github.com/ensolvers-github-challenges/Antonetti-f24aa2/issues"
   },
-  "homepage": "https://github.com/ensolvers-github-challenges/Antonetti-f24aa2#readme",
-  "dependencies": {
-    "if-env": "^1.0.4"
-  }
+  "homepage": "https://github.com/ensolvers-github-challenges/Antonetti-f24aa2#readme"
 }

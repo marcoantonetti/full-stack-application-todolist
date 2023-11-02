@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function FilterItems({filter}) {
+//Filter category component
+export default function FilterByCategory({filter}) {
 
   return (
     <select

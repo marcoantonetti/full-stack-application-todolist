@@ -51,7 +51,11 @@ button{
   padding: 0.25em 0.5em;
   color: hsl(200, 100%, 90%);
   font-size: 1.3rem;
+}
 
+.new.input-select,.new.input-text, .new.input-textarea{
+  border: 1px solid rgb(112, 106, 106);
+  transform: scale(0.93);
 }
 
 .new-item-form input:focus {

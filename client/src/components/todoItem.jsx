@@ -1,15 +1,26 @@
 import { useState } from "react";
 
-export function TodoItem({ todo, deleteItem, toggleCheck, editItem }) {
+export function TodoItem({ todo, deleteItem, editItem }) {
+  // Destructuring
   const { id, title, category, description, completed } = todo;
 
+  // Hooks
+  // When edit button is clicked, title p tag, category p tag and description textarea tag are re-render to input tags. Where the user can edit them
+  // When the user clicks the edit button again, the input values are store in the editText, editTitle and editCategory variables and the
+  // editItem function is call with the edited todo 
   const [editClick, setEditClick] = useState(true);
+  
   const [editText, setEditText] = useState(description);
   const [editTitle, setEditTitle] = useState(title);
   const [editCategory, setEditCategory] = useState(category);
 
+  // Functions
+  // This function triggers the change of state of editClick and calls editItem to edit the item
   const handleEdit = () => {
+  
     setEditClick(!editClick);
+  
+    // This conditional is because we only want to edit the todo when the edit button is clicked again
     if (!editClick) {
       editItem({...todo,
         title: editTitle,
@@ -20,7 +31,7 @@ export function TodoItem({ todo, deleteItem, toggleCheck, editItem }) {
   };
 
   return (
-    <li key={id}>
+    <li>
       <div className="div-newtodo-col">
         <div className="new title-category-row">
           {editClick ? (
@@ -30,17 +41,17 @@ export function TodoItem({ todo, deleteItem, toggleCheck, editItem }) {
               value={editTitle}
               type="text"
               name="title"
-              className="input-text"
+              className="new input-text"
               onChange={(e) => {
                 setEditTitle(e.target.value);
               }}
             />
           )}
           {editClick ? (
-            <p className="input-new-text"> {category} </p>
+            <p className="new input-new-text"> {category} </p>
           ) : (
             <select
-              className="input-select"
+              className="new input-select"
               required
               id="category"
               name="category"
@@ -66,7 +77,7 @@ export function TodoItem({ todo, deleteItem, toggleCheck, editItem }) {
             type="textarea"
             id="description"
             placeholder="Description"
-            className="input-textarea"
+            className="new input-textarea"
           ></textarea>
         )}
       </div>
@@ -82,7 +93,7 @@ export function TodoItem({ todo, deleteItem, toggleCheck, editItem }) {
           <input
             type="checkbox"
             checked={completed}
-            onChange={(e) => toggleCheck(id, e.target.checked)}
+            onChange={(e) => editItem({...todo, completed: e.target.checked})}
             className="checkbox"
             name="checkbox"
           />

@@ -19,11 +19,9 @@ app.use(cors());
 // Get Todos
 app.get("/get-todos", async (request, response) => {
   try {
-    const todos = await pool.query("SELECT * FROM todos");
-    console.log('get todos', todos);
+    const todos = await pool.query("SELECT * FROM todos ORDER BY utc desc");
     response.json(todos.rows);
-  } catch (error) {
-  }
+  } catch (error) {}
 });
 
 // Add todo
@@ -45,7 +43,6 @@ app.post("/todos", async (request, response) => {
 app.put("/todos/:id", async (request, response) => {
   const { id } = request.params;
   const { title, category, description, completed } = request.body;
-  console.log(title, category, description, completed);
   try {
     const updatedTodo = await pool.query(
       "UPDATE todos SET title = $1, category = $2, description = $3, completed = $4 WHERE id = $5",
@@ -58,22 +55,18 @@ app.put("/todos/:id", async (request, response) => {
 });
 
 //Delete todo
-app.delete("/todos/:id", async(request, response) => {
+app.delete("/todos/:id", async (request, response) => {
   const { id } = request.params;
   try {
-    const deleteTodo =  await pool.query(
-      'DELETE FROM todos WHERE id = $1',
-      [id]
-    )
-    response.json(deleteTodo)
+    const deleteTodo = await pool.query("DELETE FROM todos WHERE id = $1", [
+      id,
+    ]);
+    response.json(deleteTodo);
   } catch (error) {
-    console.log('DELETE ERROR', error);
+    console.log("DELETE ERROR", error);
   }
 });
 
+// listen
 app.listen(port, hostname, console.log("Server started on port 9000"));
 
-// "start": "node server",
-// "dev": "nodemon server",
-// "test": "react-scripts test",
-// "eject": "react-scripts eject"
