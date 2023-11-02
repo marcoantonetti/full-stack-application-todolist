@@ -1,7 +1,10 @@
+// modules
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const pool = require("./db.cjs");
+
+// port and hostname
 const port = process.env.PORT ?? 9000;
 const hostname = "localhost";
 
